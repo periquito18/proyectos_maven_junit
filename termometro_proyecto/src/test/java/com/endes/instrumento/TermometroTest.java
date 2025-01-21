@@ -1,15 +1,25 @@
 package com.endes.instrumento;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class TermometroTest extends TestCase {
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-	protected void setUp() throws Exception {
-		super.setUp();
+class TermometroTest {
+
+	Termometro termometro;
+	@BeforeEach
+	void setUp() throws Exception {
+		termometro = new Termometro(0.0);
 	}
 
-	protected void tearDown() throws Exception {
-		super.tearDown();
+	@Test
+	void testConstructor() {
+		double resultadoEsperado = 0.0;
+		
+		double resultado = termometro.getTemperaturaCelsius();
+		
+		assertEquals(resultadoEsperado, resultado);
 	}
 
 }
