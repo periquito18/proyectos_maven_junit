@@ -1,6 +1,7 @@
 package com.endes;
 
 import com.endes.servicio.ProductManager;
+import com.github.javafaker.Faker;
 
 public class Main {
 
@@ -17,13 +18,17 @@ public class Main {
 */
 		
 		ProductManager gestorDeProductos = new ProductManagerImpl();
-		gestorDeProductos.addProduct("Monitor", 250);
-		gestorDeProductos.addProduct("Teclado", 50);
-		gestorDeProductos.addProduct("Mouse", 25);
-		gestorDeProductos.addProduct("Impresora", 150);
+		Faker faker = new Faker();
+		for(int i=0; i<100; i++) {
+			System.out.println(faker.chuckNorris().fact());
+			gestorDeProductos.addProduct(faker.commerce().productName(), faker.number().numberBetween(3, 199));
+		}
+		
+		
 		gestorDeProductos.listProducts();
-		gestorDeProductos.findProduct("Teclado");
+		/*gestorDeProductos.findProduct("Teclado");
 		gestorDeProductos.findProduct("Scanner"); // Producto inexistente para provocar error
+		*/
 		
 	}
 
