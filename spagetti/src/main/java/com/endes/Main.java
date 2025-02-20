@@ -1,13 +1,27 @@
 package com.endes;
 
+import java.util.List;
+
+import com.endes.dao.ProductDAO;
+import com.endes.entidad.Product;
+import com.endes.exception.ProductNotFoundException;
 import com.endes.servicio.ProductManager;
+import com.endes.servicio.ProductManagerImpl;
 import com.github.javafaker.Faker;
 
 public class Main {
 
 	public static void main(String[] args) {
-		ProductManager gestorDeProductos = new ProductManagerImpl();
-		gestorDeProductos.crearTabla();
+	    ProductDAO productDAO = new ProductDAO();
+
+	    // Crear tabla
+	    productDAO.crearTabla();
+	   
+	    // Insertar producto sin cerrar la conexión antes
+	    productDAO.insertProduct(new Product("Camiseta", 19.99));
+
+	    // Al final, cuando ya no necesites la base de datos...
+	    productDAO.close(); 
 	}
 	/**
 	 * Crea products fake
