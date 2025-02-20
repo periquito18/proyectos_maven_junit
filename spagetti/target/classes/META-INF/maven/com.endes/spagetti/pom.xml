@@ -2,12 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.endes</groupId>
-  <artifactId>termometro_proyecto</artifactId>
+  <artifactId>spagetti</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>termometro_proyecto</name>
+  <name>spagetti</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+
 <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-api</artifactId>
@@ -26,29 +27,10 @@
     <version>5.11.3</version>
     <scope>test</scope>
 </dependency>
+<dependency>
+<groupId>com.github.javafaker</groupId>
+<artifactId>javafaker</artifactId>
+<version>1.0.2</version>
+</dependency>
   </dependencies>
-  
-  <build>
-<plugins>
-<plugin>
-  <groupId>org.jacoco</groupId>
-  <artifactId>jacoco-maven-plugin</artifactId>
-  <version>0.8.10</version>
-  <executions>
-    <execution>
-      <goals>
-        <goal>prepare-agent</goal>
-      </goals>
-    </execution>
-    <execution>
-      <id>report</id>
-      <phase>verify</phase>
-      <goals>
-        <goal>report</goal>
-      </goals>
-    </execution>
-  </executions>
-</plugin>
-</plugins>
-</build>
 </project>
