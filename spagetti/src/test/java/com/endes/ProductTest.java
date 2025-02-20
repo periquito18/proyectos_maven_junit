@@ -3,6 +3,7 @@ package com.endes;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class ProductTest {
@@ -15,14 +16,18 @@ class ProductTest {
 		p1 = new Product();
 		p1.setName("Monitor");
 		p1.setPrice(250);
-	
-		p2 = new Product();
+
 		
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	@DisplayName("Prueba de Constructor")
+	void testConstructor() {
+		String resultadoNombreEsperado = "Monitor";
+		double precioEsperado = 250;
+		
+		assertEquals(resultadoNombreEsperado, p1.getName());
+		assertEquals(precioEsperado, p1.getPrice());
 	}
 
 }
