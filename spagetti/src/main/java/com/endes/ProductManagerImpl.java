@@ -3,6 +3,7 @@ package com.endes;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.endes.dao.ProductDAO;
 import com.endes.servicio.ProductManager;
 /**
  * Gestor de Productos
@@ -10,6 +11,18 @@ import com.endes.servicio.ProductManager;
 public class ProductManagerImpl implements ProductManager {
 
 	List<Product> productos = new ArrayList<Product>();
+	private ProductDAO productDAO = new ProductDAO();
+	
+	
+	public void crearTabla() {
+		try {
+			productDAO.crearTabla();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 
 	/**
 	 * Método que permite añadir un producto
